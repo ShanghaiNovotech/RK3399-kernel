@@ -190,7 +190,7 @@
 };
 
 &edp {
-	status = "okay";
+	status = "disabled";
 	force-hpd;
 
 	ports {
@@ -207,6 +207,11 @@
 &edp_in_vopb {
 	status = "disabled";
 };
+
+&hdmi_in_vopb {
+        status = "okay";
+};
+
 
 &hdmi {
 	pinctrl-names = "default";
@@ -421,7 +426,7 @@
 	};
 };
 
-&route_edp {
+&route_hdmi {
 	status = "okay";
 };
 
@@ -447,6 +452,47 @@
 
 &vopl_mmu {
 	status = "okay";
+};
+
+&spi1 {
+        status = "okay";
+
+        max-freq = <48000000>; /* spi internal clk, don't modify */
+        spi_dev@0 {
+                compatible = "rockchip,spidev";
+                reg = <0>;
+                spi-max-frequency = <12000000>;
+                spi-lsb-first;
+        };
+};
+
+&spi2 {  
+        status = "okay";
+
+        max-freq = <48000000>; /* spi internal clk, don't modify */
+        spi_dev@0 {
+                compatible = "rockchip,spidev";
+                reg = <0>;
+                spi-max-frequency = <12000000>;
+                spi-lsb-first;
+        };
+};
+
+
+&spi5 {  
+        status = "okay";
+
+        max-freq = <48000000>; /* spi internal clk, don't modify */
+        spi_dev@0 {
+                compatible = "rockchip,spidev";
+                reg = <0>;
+                spi-max-frequency = <12000000>;
+                spi-lsb-first;
+        };
+};
+
+&gmac {
+        max-speed = <100>;
 };
 
 &pinctrl {
